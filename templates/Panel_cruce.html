@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+
+<h1 class="ejemplo1">Panel Cruce</h1>
+
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="cell">
+            <form  class="grid-x grid-margin-x" method="post" action="{% url 'control_cruce' %}">
+                {% csrf_token %}
+                
+                    <div class="cell large-6">
+                        <label>Valor Agua:
+                            {{ form.valor_agua }}
+                        </label>
+                    </div>
+
+                    <div class="cell large-6">
+                        <label>agua1:
+                            {{ form.agua1 }}
+                        </label>
+                    </div>
+
+                    <div class="cell large-6">
+                        <label>agua2:
+                            {{ form.agua2 }}
+                        </label>
+                    </div>
+
+                    <div class="cell large-6">
+                        <label>bombero:
+                            {{ form.bombero }}
+                        </label>
+                    </div>
+
+                    <div class="cell large-6">
+                        <label>valor_luz:
+                            {{ form.valor_luz }}
+                        </label>
+                    </div>
+
+                    <div class="cell large-6">
+                        <label>valor_gasss:
+                            {{ form.valor_gas }}
+                        </label>
+                    </div>
+
+                    <div class="cell large-6">
+                        <label>fecha_registro:
+                            {{ form.fecha_registro }}
+                        </label>
+                    </div>
+
+                    <div class="cell large-6 empresa" style="color: #fff;">
+                        <label>
+                            <span style="color: #fff;">{{ empresa_seleccionada }}</span>
+                        </label>
+                    </div>
+     
+                <div class="cell">
+                    <button type="submit" id="botao_cruce" class="success button">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+
+
+<!--
+<h1 class="ejemplo1">Formularios Cruce</h1>
+-->
+
+   
+
+{% endblock content %} 
+
+
+  

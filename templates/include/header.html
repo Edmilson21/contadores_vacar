@@ -1,0 +1,43 @@
+<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
+   
+  <div class="top-bar" id="responsive-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu style="background-color: rgb(33, 31, 31);">
+        <li><a href="{% url 'entrar' %}" style="color: #fff;"><i class="fa-solid fa-house fa-2x" onmouseover="this.style.color='#f7d086'" onmouseout="this.style.color='#fff'"></i></a></li>
+        <li><a href="{% url 'panel_control' %}" style="color: #fff;"><i class="fa-solid fa-screwdriver-wrench fa-2x" onmouseover="this.style.color='#f7d086'" onmouseout="this.style.color='#fff'"></i></a></li>
+        <li>
+            <li class="has-submenu">
+              <a href="#0" style="color: #fff;"><i class="fa-solid fa-table-list fa-2x" onmouseover="this.style.color='#f7d086'" onmouseout="this.style.color='#fff'"></i></a>
+              <ul class="submenu menu vertical" data-submenu style="background-color: rgb(33, 31, 31);">
+                <li><a href="{% url 'vacar_list' %}" style="color: #fff;" onmouseover="this.style.color='#f7d086';" onmouseout="this.style.color='#fff';">Listado El Vacar</a></li> 
+                <li><a href="{% url 'cruce_list' %}" style="color: #fff;" onmouseover="this.style.color='#f7d086';" onmouseout="this.style.color='#fff';">Listado El Cruce</a></li>
+            </li>
+          </ul>    
+        </li>             
+      </ul>
+    </div>
+
+    <b style="color: #fff;">{{user.nombres}}</b>
+
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu style="background-color: rgb(33, 31, 31);">
+        <li class="has-submenu">
+          <a href="#0" style="color: #fff;"><i class="fa-solid fa-user fa-2x" onmouseover="this.style.color='#f7d086'" onmouseout="this.style.color='#fff'"></i></a>
+          <ul class="submenu menu vertical" data-submenu style="background-color: rgb(33, 31, 31);">
+            <li><a href="{% url 'users_app:usuarios' %}" style="color: #fff;" onmouseover="this.style.color='#f7d086';" onmouseout="this.style.color='#fff';">Usuarios</a></li>
+            <li><a href="{% url 'users_app:user_logout' %}" style="color: #fff;" onmouseover="this.style.color='#f7d086';" onmouseout="this.style.color='#fff';">Salir</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>  
+
+
+  </div>
+  
+ 
+
+  
+

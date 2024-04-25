@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+
+<h1 class="ejemplo1">
+    Panel Vacar
+</h1>
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="cell"> 
+            <form class="grid-x grid-margin-x" method="post"  action="{% url 'control_vacar' %}">{% csrf_token %}
+
+                <div class="cell large-6">
+                    <label>Água:
+                        {{ form_panel.valor_agua }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>H.D:
+                        {{ form_panel.valor_gas_derecho }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>H.I:
+                        {{ form_panel.valor_gas_izquierdo }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Gás(Casa):</label>
+                    {{ form_panel.valor_gas_casa }}
+                    {% if form_panel.errors.valor_gas_casa %}
+                        <p class="error">{{ form_panel.errors.valor_gas_casa }}</p>
+                    {% endif %}
+                </div>
+ 
+                  <div class="cell large-6">
+                    <label>Gás(%):
+                        {{ form_panel.gas }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P1:
+                        {{ form_panel.valor_P1 }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P2:
+                        {{ form_panel.valor_P2 }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P3:
+                        {{ form_panel.valor_P3 }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Fecha:
+                        {{ form_panel.fecha_registro }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6 empresa" style="color: #fff;">
+                    <label>
+                        <span style="color: #fff;">{{ empresa_seleccionada }}</span>
+                    </label>
+                </div>
+                  
+                <div class="cell">
+                   <button type="submit" id="botao_vacar" class="success button">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+
+{% endblock content %} 

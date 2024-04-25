@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+
+
+<div class="CajaCards">
+
+  <div class="card" style="width: 300px;">
+    <div class="card-divider">
+      El Vacar
+    </div>
+    <a href="{% url 'control_vacar' %}">
+    <img src="{% static 'img/ferramenta.png' %}" class="imagen">
+    <div class="card-section">
+      <h4>Control El Vacar</h4>
+    </div>
+    </a>
+  </div>
+
+  <div class="card" style="width: 300px;">
+    <div class="card-divider">
+      El Cruce  
+    </div> 
+    <a href="{% url 'control_cruce' %}">
+    <img src="{% static 'img/ferramenta.png' %}" class="imagen">
+    <div class="card-section">
+      <h4>Control El Cruce</h4>
+    </div>
+  </a>
+  </div>
+
+</div>
+
+{% endblock content %}
+
+

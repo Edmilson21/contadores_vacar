@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+
+
+<div class="grid-container">
+
+    <div class="grid-x">
+        <h1 class="cell">El Vacar</h1>
+        <form class="cell grid-x grid-margin-x" method="GET"> {% csrf_token %}
+          <div class="cell large-7">
+              <input type="text" id="kword" name="kword" placeholder="dia/mes/año o dia-mes-año">
+          </div>
+  
+          <div class="cell large-2">
+              <button type="submit" class="button warning"><i class="fa-solid fa-magnifying-glass fa-1x"></i></button>
+          </div>
+        </form> 
+      </div>
+
+    <div class="grid-x">
+        <div class="cell"> 
+            <table>
+                <thead>
+                    <tr>
+                        <!--<th width="200">ID</th>-->
+                        <th>Valor Agua</th>
+                        <th>Valor P1</th>
+                        <th>Valor P2</th>
+                        <th>Valor P3</th>
+                        <th>Gas Derecho</th>
+                        <th>Gas Izquierdo</th>
+                        <th>Gas Casa</th>
+                        <th>Gas</th>
+                        <th>Fecha Registro</th>
+                        <!-- <th width="150">Empresa</th>--> 
+                        <th width="150">Acciones</th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    {% for vacar in vacars %} 
+                        <tr>
+                            <!--<td>{{ vacar.id }}</td>-->
+                            <td>{{ vacar.valor_agua }}</td>
+                            <td>{{ vacar.valor_P1 }}</td>
+                            <td>{{ vacar.valor_P2 }}</td>
+                            <td>{{ vacar.valor_P3 }}</td>
+                            <td>{{ vacar.valor_gas_derecho }}</td>
+                            <td>{{ vacar.valor_gas_izquierdo }}</td>
+                            <td>{{ vacar.valor_gas_casa }}</td>
+                            <td>{{ vacar.gas }}</td>  
+                            <td>{{ vacar.fecha_registro }}</td> 
+                            <!--<td>{{ vacar.empresa.nombre_empresa }}</td>-->
+                            <td>
+                                <a class="button success" href="{% url 'editar_vacar' vacar.id %}"><i class="fa-solid fa-pencil fa-1x" alt="Editar"></i></a>
+                                <a class="button alert" href="{% url 'eliminar_vacar' vacar.id %}"><i class="fa-solid fa-trash fa-1x"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}   
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        {% if is_paginated %}
+            <nav aria-label="Pagination">
+                <ul class="pagination text-center">
+                    {% if page_obj.has_previous %}
+                        <li class="pagination-previous">
+                            <a href="?page={{ page_obj.previous_page_number }}">Atrás</a>
+                        </li>
+                    {% endif %}
+
+                    {% for pagina in paginator.page_range %}
+                    {% if pagina == page_obj.number %}
+                    <li class="current"><span class="show-for-sr">You're on page</span>{{ pagina }}</li>
+                    {% else %}
+                    <li class=""><a href="?page={{ pagina }}">{{ pagina }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li class="pagination-next">
+                            <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock content %} 

@@ -1,0 +1,151 @@
+
+#select{
+   /* background-color: blue;*/
+    height: 100px;
+  
+}
+ 
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* O ajusta la altura según sea necesario */
+   /* background-color: orange;*/
+}
+ 
+#empresa-imagen {
+    height: 260px; /* Ajusta la altura máxima según sea necesario */
+    width: 260px; /* Ajusta el ancho máximo según sea necesario */
+    margin-bottom: 60px;  /* Centramos horizontalmente la imagen y aplicamos margen en la parte superior */
+    display: block; /* Asegura que la imagen sea tratada como un elemento en bloque */
+}
+
+
+.ejemplo1{
+    text-align: center;  
+}
+
+.contenedor_boton{
+    display: flex; 
+    justify-content: center;
+}
+
+#botao{
+    text-align: center;
+
+   }
+
+.empresa {
+    color: #b41818;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+/*Centralizando imagenes*/
+
+
+ 
+
+/*Estilos para el Cruce*/
+
+ /*Estilos para el Vacar*/
+
+ 
+ /* Estilo Panel de Control Principal */
+
+
+ .card_app img {
+    max-width: 30%;
+}
+
+.card_app h3 {
+    color: rgb(255, 255, 255);
+    /*font-style: italic;
+    font-weight: bold;*/ 
+}
+
+
+.contenedor_app {
+    width: 14rem;
+    margin: 9px;
+    background-color: #b41818;
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s;
+    border-radius: 5%;
+    text-align: center;
+    
+}
+
+/* Cards */
+
+
+.CajaCards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 8px auto;
+    max-width: 800px;
+    margin-top: 90px; /*Espaciado entre barra menu y los cards app*/
+
+  }
+  
+  .card {
+    width: 14rem;
+    margin: 9px;
+    background-color: #5f90c9;
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s;
+    border-radius: 3%;
+    color: #ffffff;
+  }
+
+  .card a {
+    color: white; 
+  }
+
+  .card:hover {
+    background-color: #b9409b;
+}
+
+
+  
+  .card-divider {
+    background-color: #951313;
+    padding: 10px;
+    text-align: center; 
+    color: aliceblue;
+  }
+
+
+  
+  .imagen {
+    width: 120px; /* Haz que la imagen ocupe todo el ancho del contenedor */
+    height: 120px; /* Permite que la altura se ajuste automáticamente */
+    display: block; /* Para eliminar cualquier espacio adicional alrededor de la imagen */
+    margin: 0 auto; /*Centrando horizontalmente la imagen en elk contenedor*/
+    padding: 10px;
+}
+  
+  .card-section {
+    padding: 10px;
+  }
+
+
+  .top-bar {
+    background-color: rgb(33, 31, 31);
+  }
+   
+
+  .imagen-blank {
+    background-color: #ffffff; /* Color blanco */
+}
+
+
+

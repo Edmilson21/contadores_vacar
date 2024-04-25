@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+
+    <h1>Registros Cruce</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Valor Agua</th>
+                <th>Valor Luz</th>
+                <th>Valor Gas</th>
+                <th>Fecha Registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros_cruce %}
+                <tr>
+                    <td>{{ registro.id }}</td>
+                    <td>{{ registro.valor_agua }}</td>
+                    <td>{{ registro.valor_luz }}</td>
+                    <td>{{ registro.valor_gas }}</td>
+                    <td>{{ registro.fecha_registro }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Registros Vacar</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Valor Agua</th>
+                <th>Valor P1</th>
+                <th>Valor P2</th>
+                <th>Valor P3</th>
+                <th>Valor Gas Derecho</th>
+                <th>Valor Gas Izquierdo</th>
+                <th>Valor Gas Casa</th>
+                <th>Fecha Registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros_vacar %}
+                <tr>
+                    <td>{{ registro.id }}</td>
+                    <td>{{ registro.valor_agua }}</td>
+                    <td>{{ registro.valor_P1 }}</td>
+                    <td>{{ registro.valor_P2 }}</td>
+                    <td>{{ registro.valor_P3 }}</td>
+                    <td>{{ registro.valor_gas_derecho }}</td>
+                    <td>{{ registro.valor_gas_izquierdo }}</td>
+                    <td>{{ registro.valor_gas_casa }}</td>
+                    <td>{{ registro.fecha_registro }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock content %} 

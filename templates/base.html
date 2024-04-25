@@ -1,0 +1,61 @@
+<!-- base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block dependencias %} 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Sitio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome 6.5.1/css/all.min.css' %}">
+    {% endblock %}
+</head> 
+<body>
+   
+{% block content %} 
+{% endblock %}
+
+<script src="{% static 'js/vendor/jquery.js' %}"></script>
+<script src="{% static 'js/vendor/what-input.js' %}"></script>
+<script src="{% static 'js/vendor/foundation.min.js'%}"></script>
+
+<script>
+  $(document).foundation();
+</script>
+
+<script src="{% static 'js/common.js' %}"></script>
+
+<!-- Sweet Alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                 // Mensaje de error
+                 swal.fire({
+                    icon: 'error',
+                    title: '{{ message }}',
+                    showConfirmButton: false,
+                    timer: 5000  // Duración en milisegundos
+                });
+            {% else %}
+                // Mensaje de éxito
+                swal.fire({
+                    icon: 'success',
+                    title: '{{ message }}',
+                    showConfirmButton: false,
+                    timer: 3000  // Duración en milisegundos
+                });
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</script> 
+
+</body>
+</html>
+ 

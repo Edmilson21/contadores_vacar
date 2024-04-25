@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+ 
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell"> 
+            Modificar Usuario
+        </h1>
+        <div class="cell">
+            <form class="grid-x grid-margin-x" method="POST">{% csrf_token %}
+                <div class="cell large-6">
+                    <label>Usuario:
+                        {{form.username}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Email:
+                        {{form.email}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Nombre:
+                        {{form.nombres}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Apellidos:
+                        {{form.apellidos}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Genero: 
+                        {{form.genero}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">   
+                    <label>Staff:
+                        {{form.is_staff}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">   
+                    <label>Activación:
+                        {{form.is_active}}                    </label>
+                  </div>
+
+
+                  <div class="cell">
+                    <button class="submit success button" type="submit">Guardar</button> 
+                  </div>
+
+            </form>
+        </div>
+    </div>
+</div>   
+
+{% endblock content %}  

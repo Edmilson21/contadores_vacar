@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+
+ 
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell"> 
+            Modificar Contadores
+        </h1>
+        <div class="cell">
+            <form class="grid-x grid-margin-x" method="POST">{% csrf_token %}
+                <div class="cell large-6">
+                    <label>Agua:
+                        {{form.valor_agua}}                     </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P1:
+                        {{form.valor_P1}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P2:
+                        {{form.valor_P2}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P3:
+                        {{form.valor_P3}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Gás Derecho: 
+                        {{form.valor_gas_derecho}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Gás Izquierdo:
+                        {{form.valor_gas_izquierdo}}                    </label>
+                  </div> 
+
+                  <div class="cell large-6">
+                    <label>Gás Casa: 
+                        {{form.valor_gas_casa}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Gás:
+                        {{form.gas}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">   
+                    <label>Fecha:
+                        {{form.fecha_registro}}                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Empresa: 
+                        {{ empresa_seleccionada }}
+                    </label>
+                </div>
+
+
+                  <div class="cell">
+                    <button class="submit success button" type="submit">Guardar</button>
+                  </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %} 
+

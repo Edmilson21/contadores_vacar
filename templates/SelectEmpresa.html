@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+
+<h1 class="ejemplo1">Empresas</h1>
+
+<form id="select" method="post" class="grid-container medium-6 cell" action="{% url 'entrar' %}">
+    {% csrf_token %}
+  
+    <select id="nombre_empresa" name="nombre_empresa" class="select-box">
+        <option value="" selected disabled>--------</option>
+        {% for empresa in empresas %}
+            <option value="{{ empresa.id }}">{{ empresa.nombre_empresa }}</option>
+        {% endfor %}
+    </select>
+    <div class="contenedor_boton">
+        <button type="submit" id="botao" class="button primary">Entrar</button>
+    </div>
+</form>
+
+<div class="contenedor">
+    <img id="empresa-imagen" src="">
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function() { 
+        // Manejar el cambio en el select
+        $('#nombre_empresa').change(function() {
+            var selectedEmpresa = $(this).val();
+            // Lógica para establecer la imagen según la empresa seleccionada
+            if (selectedEmpresa == '1') {
+                $('#empresa-imagen').attr('src', '{% static "img/restaurante.png" %}').show();
+            } else if (selectedEmpresa == '2') {
+                $('#empresa-imagen').attr('src', '{% static "img/padaria2.png" %}').show();
+            } else {
+                // Establecer la imagen como vacía si no se selecciona ninguna empresa
+                $('#empresa-imagen').attr('src', '').hide();  
+            }   
+        }).trigger('change'); // Para que se ejecute la lógica al cargar la página
+    });
+    </script> 
+
+{% endblock content %}
+
+ 

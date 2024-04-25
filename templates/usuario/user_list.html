@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+
+<div class="grid-container">
+
+    <div class="grid-x">
+      <h1 class="cell">Lista Usuarios</h1>
+        <div class="cell large-2">
+        </div>
+      </form>
+    </div>
+   
+    <div class="grid-x">
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Género</th>
+                        <th>¿Es personal de staff?</th>
+                        <th>¿Está activo?</th>
+                        <th>Acciones</th> 
+                    </tr>
+                </thead> 
+                <tbody>
+                    {% for user in  usuarios %}  
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td> 
+                            <td>{{ user.nombres }}</td>
+                            <td>{{ user.apellidos }}</td>
+                            <td>{{ user.genero }}</td>
+                            <td>{{ user.is_staff }}</td>
+                            <td>{{ user.is_active }}</td>
+                            <td>
+                                <a class="button success" href="{% url 'users_app:editar_usuarios' user.id %}"><i class="fa-solid fa-pencil fa-1x" alt="Editar"></i></a>
+                                <a class="button alert" href="{% url 'users_app:eliminar_usuarios' user.id %}"><i class="fa-solid fa-trash fa-1x" alt="Eliminar"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}     
+                </tbody>                 
+            </table>
+        </div>
+    </div>
+
+    <div>
+        {% if is_paginated %}
+        <nav aria-label="Pagination">
+            <ul class="pagination text-center">
+                {% if page_obj.has_previous %}
+                    <li class="pagination-previous">
+                        <a href="?page={{ page_obj.previous_page_number }}">Atrás</a>
+                    </li>
+                {% endif %}
+                {% for pagina in paginator.page_range %}
+                {% if pagina == page_obj.number %}
+                <li class="current"><span class="show-for-sr">You're on page</span>{{ pagina }}</li>
+                {% else %}
+                <li class=""><a href="?page={{ pagina }}">{{ pagina }}</a></li>
+                {% endif %}
+            {% endfor %}
+            
+
+                {% if page_obj.has_next %}
+                    <li class="pagination-next">
+                        <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+ 
+<h1 class="ejemplo1">
+    Formularios del Vacar
+</h1> 
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="cell"> 
+            <form class="grid-x grid-margin-x" method="post" class="form_vacar" action="{% url 'vacar' %}">{% csrf_token %}
+
+                <div class="cell large-6">
+                    <label>Água:
+                        {{ form_vacar.valor_agua }}
+                    </label> 
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>H.D:
+                        {{ form_vacar.valor_gas_derecho }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>H.I:
+                        {{ form_vacar.valor_gas_izquierdo }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Gás(Casa):
+                        {{ form_vacar.valor_gas_casa }}
+                        {% if form_vacar.valor_gas_casa.errors %}
+                            <span class="error">{{ form_vacar.valor_gas_casa.errors }}</span>
+                        {% endif %}
+                    </label>
+                  </div>
+ 
+                  <div class="cell large-6">
+                    <label>Gás(%):
+                        {{ form_vacar.gas }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P1:
+                        {{ form_vacar.valor_P1 }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P2:
+                        {{ form_vacar.valor_P2 }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>P3:
+                        {{ form_vacar.valor_P3 }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6">
+                    <label>Fecha:
+                        {{ form_vacar.fecha_registro }}
+                    </label>
+                  </div>
+
+                  <div class="cell large-6 empresa" style="color: #fff;">
+                    <label>
+                        <span style="color: #fff;">{{ empresa_seleccionada }}</span>
+                    </label>
+                </div>
+                  
+                <div class="cell">
+                   <button type="submit" id="botao_vacar" class="success button">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %} 
+

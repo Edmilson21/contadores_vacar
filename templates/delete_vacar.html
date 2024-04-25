@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'include/header.html' %}
+
+
+<div class="grid-container">
+    <div class="grid-x ">
+        <h2 class="cell">Eliminar Vacar {{ object.valor_agua }} </h2>
+        <form class="cell " method="post">{% csrf_token %} 
+        
+            <div class="callout secondary">
+                <h5>Desea eliminar este dato del Vacar?</h5>
+                <button type="submit" class="alert button">Confirmar</button>
+            </div>        
+        </form>
+    </div>
+</div>
+
+{% endblock content %}  
